@@ -9,9 +9,31 @@ void main() {
       home: Scaffold(
         appBar: AppBar(title: Text("Long List"), backgroundColor: Colors.amber),
         body: getListView(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            debugPrint("Add more items");
+          },
+          backgroundColor: Colors.amber,
+          tooltip: "Add more items",
+          child: Icon(Icons.add),
+        ),
       ),
     ),
   );
+}
+
+/*show snackBar*/
+void showSnackBar(BuildContext context, String items){
+  var showSnackBar = SnackBar(
+      content: Text("You just tapped the $items"),
+    action: SnackBarAction(
+      label: "UNDO",
+      onPressed: (){
+        debugPrint("Undo button pressed");
+      },
+  ),
+  );
+  ScaffoldMessenger.of(context).showSnackBar(showSnackBar);
 }
 
 /*Long ListView in Flutter*/
@@ -29,14 +51,16 @@ Widget getListView() {
         title: Text(
           listItems[index],
           style: TextStyle(fontWeight: FontWeight.normal, fontSize: 20.0),
-        ), //Text
+        ),
+        //Text
         subtitle: Text(
           "Rs - 75,00,00",
           style: TextStyle(color: Colors.green, fontWeight: FontWeight.normal),
-        ), //Text
+        ),
+        //Text
         trailing: Icon(Icons.share),
         onTap: () {
-          debugPrint("Laptop $index selected");
+          showSnackBar(context, listItems[index]);
         },
       ); //ListTile
     },
