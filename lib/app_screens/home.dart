@@ -73,6 +73,7 @@ class Home extends StatelessWidget {
               ],
             ), //Row
             FlightImageAsset(),
+            FlightBookingButton(),
           ],
         ), //Column
       ), //Container
@@ -88,5 +89,51 @@ class FlightImageAsset extends StatelessWidget {
     AssetImage assetImage = AssetImage('images/flight.png');
     Image image = Image(image: assetImage);
     return Container(child: image);
+  }
+}
+
+class FlightBookingButton extends StatelessWidget {
+  const FlightBookingButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.deepOrange,
+        // Use backgroundColor instead of color
+        foregroundColor: Colors.white,
+        // Use foregroundColor instead of textColor
+        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        textStyle: TextStyle(
+          fontSize: 16.0,
+          fontFamily: "Raleway",
+          fontWeight: FontWeight.w700,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        elevation: 5.0,
+        shadowColor: Colors.black,
+      ),
+      child: Text("Book your flight now"),
+      onPressed: () => bookFlight(context),
+    ); //ElevatedButton
+  }
+
+  void bookFlight(BuildContext context) {
+    var alertDialog = AlertDialog(
+      title: Text(
+        "Flight Booked Successfully!!",
+        textAlign: TextAlign.center,
+      ), //Text
+      content: Text(
+        "Have a safe journey",
+        textAlign: TextAlign.center,
+      ), //Text
+    ); //AlertDialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => alertDialog,
+    ); //showDialog
   }
 }
