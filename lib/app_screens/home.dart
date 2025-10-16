@@ -72,9 +72,21 @@ class Home extends StatelessWidget {
                 ), //Expanded
               ],
             ), //Row
+            FlightImageAsset(),
           ],
         ), //Column
       ), //Container
     ); //Center
+  }
+}
+
+class FlightImageAsset extends StatelessWidget {
+  const FlightImageAsset({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    AssetImage assetImage = AssetImage('images/flight.png');
+    Image image = Image(image: assetImage);
+    return Container(child: image);
   }
 }
