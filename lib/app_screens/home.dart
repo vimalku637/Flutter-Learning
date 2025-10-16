@@ -4,22 +4,77 @@ class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Center(
       child: Container(
+        padding: EdgeInsets.only(left: 10.0, top: 40.0),
         alignment: Alignment.center,
         color: Colors.deepPurple,
-        child: Text(
-            "Flutter Magic",
-            textDirection: TextDirection.ltr,
-            style: TextStyle(
-              decoration: TextDecoration.none,
-              fontFamily: 'Raleway',
-              fontWeight: FontWeight.w700,
-              color: Colors.white
-        ), //TextStyle
-        ), //Text
-      ) //Container
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    "Spice Jet",
+                    textDirection: TextDirection.ltr,
+                    style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontSize: 30.0,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ), //TextStyle
+                  ), //Text
+                ), //Expanded
+                Expanded(
+                  child: Text(
+                    "From mumbai to Bangalore via New Delhi",
+                    textDirection: TextDirection.ltr,
+                    style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontSize: 20.0,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ), //TextStyle
+                  ), //Text
+                ), //Expanded
+              ],
+            ), //Row
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    "Air India",
+                    textDirection: TextDirection.ltr,
+                    style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontSize: 30.0,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ), //TextStyle
+                  ), //Text
+                ), //Expanded
+                Expanded(
+                  child: Text(
+                    "From jaipur to goa",
+                    textDirection: TextDirection.ltr,
+                    style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontSize: 20.0,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ), //TextStyle
+                  ), //Text
+                ), //Expanded
+              ],
+            ), //Row
+          ],
+        ), //Column
+      ), //Container
     ); //Center
   }
 }
